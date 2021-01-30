@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import { actionCreators } from "../store";
-import ToDo from "../components/ToDo.js";
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import { actionCreators } from '../store';
+import ToDo from '../components/ToDo.js';
 
 const Home = ({ toDos, addToDo }) => {
   // console.log(toDos);
   console.log(addToDo);
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
 
   const onChange = e => {
     setText(e.target.value);
@@ -15,7 +15,7 @@ const Home = ({ toDos, addToDo }) => {
   const onSubmit = e => {
     e.preventDefault();
 
-    setText("");
+    setText('');
     console.log(text);
     addToDo(text);
   };
@@ -56,6 +56,7 @@ const mapStateToProps = state => {
 // dispatch는 함수이다 이것이 reducer에 값을 전달한다. (store.dispatch() 와 같은 역할)
 const mapDispatchToProps = dispatch => {
   return {
+    // 앞에 addToDo는 home 컴포넌트에 넘어온 props 뒤에 것은 actionCreator에 있는 함수 addToDo
     addToDo: text => dispatch(actionCreators.addToDo(text)),
   };
 };

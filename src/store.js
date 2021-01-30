@@ -47,7 +47,7 @@ const reducer = (
 };
 
 const store = createStore(reducer);
-
+// const store = configureStore({ reducer });
 export const actionCreators = {
   addToDo,
   delToDo,
